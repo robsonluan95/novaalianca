@@ -134,6 +134,7 @@ export const NewsSection: React.FC = () => {
                       alt={news.title}
                       onError={() => handleImageError(news.id)}
                       className="w-full h-auto max-h-[500px] object-cover"
+                      suppressHydrationWarning
                     />
                   ) : (
                     <div className="w-full h-48 flex flex-col items-center justify-center text-emerald-300/40 p-4">

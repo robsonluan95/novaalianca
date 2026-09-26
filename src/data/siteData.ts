@@ -82,31 +82,68 @@ export const SERVICE_STAGES = [
   {
     id: 'stage-1',
     title: 'Terraplenagem e Abertura de Vias',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80',
+    image: '/etapa-terraplenagem.jpg',
   },
   {
     id: 'stage-2',
     title: 'Compactação de Solo e Pavimentação Asfáltica',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+    image: '/etapa-compactacao.jpg',
   },
   {
     id: 'stage-3',
     title: 'Nivelamento e Drenagem com Maquinário Pesado',
-    image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80',
+    image: '/etapa-terraplenagem.jpg',
   },
 ];
 
-export const FEATURED_PROJECT: Project = {
-  id: 'ufv-cristino-castro-featured',
-  title: 'UFV Cristino Castro (Energia Solar & Terraplenagem)',
-  location: 'Cristino Castro, Piauí',
-  year: '2025',
-  capacity: '765 MWp',
-  description:
-    'Exemplo máximo da união Carvalho + HB20: terraplenagem pesada de 1.200.000 m² (HB20) combinada com 543.089 módulos fotovoltaicos, 6.064 trackers e 76.140 perfis metálicos cravados (Carvalho).',
-  image: '/ufv-cristino-castro.jpg',
-  isFeatured: true,
-};
+export const FEATURED_PROJECTS: Project[] = [
+  {
+    id: 'ufv-cristino-castro',
+    title: 'UFV Cristino Castro (Energia Solar & Terraplenagem)',
+    location: 'Cristino Castro, Piauí',
+    year: '2025',
+    capacity: '765 MWp',
+    description:
+      'Exemplo máximo da união Carvalho + HB20: terraplenagem pesada de 1.200.000 m² (HB20) combinada com 543.089 módulos fotovoltaicos, 6.064 trackers e 76.140 perfis metálicos cravados (Carvalho).',
+    image: '/ufv-cristino-castro.jpg',
+    isFeatured: true,
+  },
+  {
+    id: 'linha-verde-ii',
+    title: 'Linha Verde II (LT 500 kV)',
+    location: 'Santana do Riacho, Minas Gerais',
+    year: '2020',
+    capacity: '500 kV',
+    description:
+      'Execução de linha de transmissão de alta tensão de 500 kV, envolvendo a montagem de torres metálicas e lançamento de cabos condutores de alta performance.',
+    image: '/linha_verde_ii.jpg',
+    isFeatured: true,
+  },
+  {
+    id: 'abroad-moquegua',
+    title: 'Complexo Moquegua',
+    location: 'Moquegua, Peru',
+    year: '2014',
+    capacity: '2 GW',
+    description:
+      'Projeto internacional de alta escala no Peru, englobando complexo termo solar, sistema biodigestor de suinocultura, galpões de avicultura e moderno abatedouro.',
+    image: '/abroad.jpeg',
+    isFeatured: true,
+  },
+  {
+    id: 'pch-rodeio-bonito',
+    title: 'PCH Rodeio Bonito (Central Hidrelétrica)',
+    location: 'Maravilha, Santa Catarina',
+    year: '2021',
+    capacity: '24.000 kW',
+    description:
+      'Pequena Central Hidrelétrica de alta complexidade com turbina Francis Horizontal, vazão total de 21,60 m³/s e projeto inovador de vazão sanitária submersível.',
+    image: '/pch-rodeio-bonito.jpg',
+    isFeatured: true,
+  },
+];
+
+export const FEATURED_PROJECT: Project = FEATURED_PROJECTS[0];
 
 export const PROJECTS_LIST: Project[] = [
   {
@@ -195,7 +232,7 @@ export const PROJECTS_LIST: Project[] = [
     location: 'Santana do Riacho, Minas Gerais',
     year: '2020',
     capacity: '500 kV',
-    image: '/Linha Verde II.jpg',
+    image: '/linha_verde_ii.jpg',
   },
   {
     id: 'complexo-termosolar',
@@ -209,9 +246,41 @@ export const PROJECTS_LIST: Project[] = [
     id: 'abroad-moquegua',
     title: 'ABROAD Complexo Moquegua',
     location: 'Moquegua, Peru',
-    year: '2020',
+    year: '2014',
     capacity: '2 GW',
     image: '/abroad.jpeg',
+  },
+  {
+    id: 'pch-rodeio-bonito',
+    title: 'PCH Rodeio Bonito',
+    location: 'Maravilha, Santa Catarina',
+    year: '2021',
+    capacity: '24.000 kW',
+    image: '/pch-rodeio-bonito.jpg',
+  },
+  {
+    id: 'pch-sao-domingos-ii',
+    title: 'PCH São Domingos II',
+    location: 'São Domingos, Goiás',
+    year: '2022',
+    capacity: '24.000 kW',
+    image: '/pch-sao-domingos.jpg',
+  },
+  {
+    id: 'pch-3-linha-leste',
+    title: 'PCH 3ª Linha Leste',
+    location: 'Ijuí, Rio Grande do Sul',
+    year: '2022',
+    capacity: '12.350 kW',
+    image: '/pch-linha-leste.jpg',
+  },
+  {
+    id: 'pch-ernesto-dreher',
+    title: 'PCH Ernesto J. Dreher',
+    location: 'Júlio de Castilhos, Rio Grande do Sul',
+    year: '2023',
+    capacity: '17.000 kW',
+    image: '/pch_ernesto_j_dreher.png',
   },
   {
     id: 'subestacao-itabira',
@@ -220,6 +289,14 @@ export const PROJECTS_LIST: Project[] = [
     year: '2020',
     capacity: '500 kV',
     image: '/subestacao-itabira.png',
+  },
+  {
+    id: 'leilao-aneel-2005',
+    title: 'Leilão ANEEL 001/2005 - Interligação Norte-Sul',
+    location: 'Interligação Norte-Sul, Brasil',
+    year: '2006',
+    capacity: '708 km LT & SEs',
+    image: '/interligacao-norte-sul.webp',
   },
 ];
 
@@ -279,6 +356,20 @@ export const SERVICES_LIST: Service[] = [
     description: 'Serviços de abertura de valas para instalação de cabos subterrâneos, com equipamentos especializados.',
     image: '/abertura-valas.png',
     iconName: 'Wrench',
+  },
+  {
+    id: 'linha-transmissao',
+    title: 'Linhas de Transmissão',
+    description: 'Serviços completos para linhas de transmissão: fundação das torres, montagem das torres e lançamento de cabo.',
+    image: '/servico-linhas-transmissao.jpg',
+    iconName: 'Zap',
+  },
+  {
+    id: 'subestacao-se',
+    title: 'Subestações (SE)',
+    description: 'Construção civil e eletromecânica: montagem das bases dos pórticos, montagem dos pórticos, casa de comando e paredes corta-fogo.',
+    image: '/servico-subestacao.jpg',
+    iconName: 'Building',
   },
 ];
 

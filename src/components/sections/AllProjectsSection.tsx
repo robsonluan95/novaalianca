@@ -24,10 +24,10 @@ export const AllProjectsSection: React.FC = () => {
     const featuredTranslation =
       project.id === FEATURED_PROJECT.id
         ? {
-            title: t.projects.featured.title,
-            location: t.projects.featured.location,
-            capacity: t.projects.featured.capacity,
-          }
+          title: t.projects.featured.title,
+          location: t.projects.featured.location,
+          capacity: t.projects.featured.capacity,
+        }
         : null;
 
     return {
@@ -59,6 +59,7 @@ export const AllProjectsSection: React.FC = () => {
                     alt={project.title}
                     onError={() => handleImageError(project.id)}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    suppressHydrationWarning
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-emerald-300/40 p-4">

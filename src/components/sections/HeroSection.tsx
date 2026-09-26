@@ -65,7 +65,7 @@ export const HeroSection: React.FC = () => {
           className="bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-12 lg:p-14 shadow-2xl border border-white/60 text-center max-w-4xl mx-auto transition-all duration-300 transform hover:shadow-[0_25px_50px_-12px_rgba(0,56,41,0.15)]"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-6 shadow-md border-2 border-emerald-100 p-1 bg-white">
-            <img src="/icon.jpeg" alt="Nova Aliança Empreendimentos" className="w-full h-full object-cover rounded-full" />
+            <img src="/icon.jpeg" alt="Nova Aliança Empreendimentos" className="w-full h-full object-cover rounded-full" suppressHydrationWarning />
           </motion.div>
 
           <motion.h1

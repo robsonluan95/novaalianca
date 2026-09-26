@@ -34,6 +34,7 @@ export const AboutSection: React.FC = () => {
                 src="/ceo.jpg"
                 alt="Tiago Nunes de Castro - Fundador e Diretor"
                 className="w-full h-[450px] sm:h-[520px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                suppressHydrationWarning
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent" />

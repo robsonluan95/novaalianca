@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { Button } from '@/components/ui/Button';
-import { FEATURED_PROJECT, PROJECTS_LIST } from '@/data/siteData';
+import { FEATURED_PROJECT, PROJECTS_LIST, FEATURED_PROJECTS } from '@/data/siteData';
 import { MapPin, Zap, ChevronLeft, ChevronRight, ChevronUp, ImageOff, Search } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -17,18 +17,29 @@ export const ProjectsSection: React.FC = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const [featuredIndex, setFeaturedIndex] = useState(0);
   const { t } = useLanguage();
 
   const handleImageError = (id: string) => {
     setImageErrors((prev) => ({ ...prev, [id]: true }));
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % FEATURED_PROJECTS.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentFeaturedData = FEATURED_PROJECTS[featuredIndex];
+  const currentFeaturedTranslation = t.projects.list.find((item) => item.id === currentFeaturedData.id);
+
   const featuredProject = {
-    ...FEATURED_PROJECT,
-    title: t.projects.featured.title,
-    location: t.projects.featured.location,
-    capacity: t.projects.featured.capacity,
-    description: t.projects.featured.description,
+    ...currentFeaturedData,
+    title: currentFeaturedTranslation?.title || currentFeaturedData.title,
+    location: currentFeaturedTranslation?.location || currentFeaturedData.location,
+    capacity: currentFeaturedTranslation?.capacity || currentFeaturedData.capacity,
+    description: currentFeaturedTranslation?.description || currentFeaturedData.description || '',
   };
 
   const projectsList = PROJECTS_LIST.map((project) => {
@@ -50,10 +61,10 @@ export const ProjectsSection: React.FC = () => {
     const featuredTranslation =
       project.id === FEATURED_PROJECT.id
         ? {
-            title: t.projects.featured.title,
-            location: t.projects.featured.location,
-            capacity: t.projects.featured.capacity,
-          }
+          title: t.projects.featured.title,
+          location: t.projects.featured.location,
+          capacity: t.projects.featured.capacity,
+        }
         : null;
 
     return {
@@ -100,18 +111,31 @@ export const ProjectsSection: React.FC = () => {
           <>
             {/* Main Featured Hero Card */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12 border border-gray-200/80 bg-brand-dark group">
-              <div className="relative h-[480px] sm:h-[540px] w-full bg-gradient-to-br from-brand-dark via-emerald-950 to-brand-emerald flex items-center justify-center">
+              {/* Indicators/Dots in top right corner of the card */}
+              <div className="absolute top-6 right-6 flex gap-2 z-20 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                {FEATURED_PROJECTS.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setFeaturedIndex(idx)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === featuredIndex ? 'bg-brand-light scale-125' : 'bg-white/40 hover:bg-white/70'
+                      }`}
+                    aria-label={`Ver destaque ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="relative h-[480px] sm:h-[540px] w-full bg-gradient-to-br from-brand-dark via-emerald-950 to-brand-emerald flex items-center justify-center transition-all duration-500">
                 {!imageErrors[featuredProject.id] && featuredProject.image ? (
                   <img
                     src={featuredProject.image}
                     alt={featuredProject.title}
                     onError={() => handleImageError(featuredProject.id)}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    suppressHydrationWarning
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-emerald-300/40 p-6">
                     <ImageOff className="w-20 h-20 mb-2 stroke-[1.5]" />
-                    <span className="text-sm font-semibold tracking-wide">Usinas Fotovoltaicas</span>
+                    <span className="text-sm font-semibold tracking-wide text-center">{featuredProject.title}</span>
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent" />
@@ -195,6 +219,7 @@ export const ProjectsSection: React.FC = () => {
                             alt={project.title}
                             onError={() => handleImageError(project.id)}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            suppressHydrationWarning
                           />
                         ) : (
                           <div className="w-full h-full flex flex-col items-center justify-center text-emerald-300/40 p-4">
@@ -231,6 +256,7 @@ export const ProjectsSection: React.FC = () => {
                       alt={project.title}
                       onError={() => handleImageError(project.id)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      suppressHydrationWarning
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-emerald-300/40 p-4">

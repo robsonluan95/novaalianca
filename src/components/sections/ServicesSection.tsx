@@ -139,6 +139,7 @@ export const ServicesSection: React.FC = () => {
                       alt={service.title}
                       onError={() => handleImageError(service.id)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      suppressHydrationWarning
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-emerald-300/40 p-4">
