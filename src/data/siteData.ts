@@ -1,19 +1,10 @@
-import { Project, Service, NewsItem, ValueItem, MetricItem, NavLink } from '@/types';
+import { Project, Service, NewsItem, ValueItem, MetricItem } from '@/types';
 
 export interface ClientLogo {
   id: string;
   name: string;
   image: string;
 }
-
-export const NAV_LINKS: NavLink[] = [
-  { label: 'Página Inicial', href: '#hero' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Notícias', href: '#noticias' },
-  { label: 'Sobre Nós', href: '#sobre' },
-  { label: 'Contato', href: '#contato' },
-];
 
 export const HERO_METRICS: MetricItem[] = [
   { value: '2.750+ MWp', label: 'Instalados em Energia Solar' },
@@ -44,58 +35,6 @@ export const CLIENTS_LIST: ClientLogo[] = [
   },
 ];
 
-export interface ExpertiseArea {
-  id: string;
-  title: string;
-  description: string;
-  iconName: 'Building' | 'HardHat' | 'Droplet' | 'Pickaxe' | 'Sun';
-}
-
-export const EXPERTISE_AREAS: ExpertiseArea[] = [
-  {
-    id: 'construcao-civil',
-    title: 'Construção Civil',
-    description: 'Planejamento, gerenciamento e execução de obras civis de grande porte.',
-    iconName: 'Building',
-  },
-  {
-    id: 'obras-infraestrutura',
-    title: 'Obras de Infraestrutura',
-    description: 'Concepção, construção, fiscalização, operação e análise de pavimentação e terraplenagem.',
-    iconName: 'HardHat',
-  },
-  {
-    id: 'saneamento',
-    title: 'Saneamento',
-    description: 'Maquinários de alta tonelagem e profissionais especializados em redes de saneamento.',
-    iconName: 'Droplet',
-  },
-  {
-    id: 'mineracao',
-    title: 'Mineração',
-    description: 'Soluções com custos otimizados e execução acelerada para movimentação de terra e minérios.',
-    iconName: 'Pickaxe',
-  },
-];
-
-export const SERVICE_STAGES = [
-  {
-    id: 'stage-1',
-    title: 'Terraplenagem e Abertura de Vias',
-    image: '/etapa-terraplenagem.jpg',
-  },
-  {
-    id: 'stage-2',
-    title: 'Compactação de Solo e Pavimentação Asfáltica',
-    image: '/etapa-compactacao.jpg',
-  },
-  {
-    id: 'stage-3',
-    title: 'Nivelamento e Drenagem com Maquinário Pesado',
-    image: '/etapa-terraplenagem.jpg',
-  },
-];
-
 export const FEATURED_PROJECTS: Project[] = [
   {
     id: 'ufv-cristino-castro',
@@ -107,6 +46,8 @@ export const FEATURED_PROJECTS: Project[] = [
       'Exemplo máximo da união Carvalho + HB20: terraplenagem pesada de 1.200.000 m² (HB20) combinada com 543.089 módulos fotovoltaicos, 6.064 trackers e 76.140 perfis metálicos cravados (Carvalho).',
     image: '/ufv-cristino-castro.jpg',
     isFeatured: true,
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'linha-verde-ii',
@@ -115,9 +56,17 @@ export const FEATURED_PROJECTS: Project[] = [
     year: '2020',
     capacity: '500 kV',
     description:
-      'Execução de linha de transmissão de alta tensão de 500 kV, envolvendo a montagem de torres metálicas e lançamento de cabos condutores de alta performance.',
+      'Linha de transmissão de 500 kV entre as subestações Presidente Juscelino e Itabira 5, com 160,33 km de traçado e 314 torres (148 estaiadas e 166 autoportantes), executada pela Quebec Engenharia para a SPE Transmissora de Energia Linha Verde II / Terna Plus. Contrato de R$ 202,4 milhões e prazo de 16 meses, com fornecedores como Gerdau, Alubar, ZTT do Brasil e Siemens.',
     image: '/linha_verde_ii.jpg',
+    gallery: [
+      '/linha-verde-ii-galeria-1.jpg',
+      '/linha-verde-ii-galeria-2.jpg',
+      '/linha-verde-ii-galeria-3.jpg',
+      '/linha-verde-ii-galeria-4.jpg',
+    ],
     isFeatured: true,
+    segment: 'energia',
+    subtype: 'Transmissão/Subestação',
   },
   {
     id: 'abroad-moquegua',
@@ -126,9 +75,11 @@ export const FEATURED_PROJECTS: Project[] = [
     year: '2014',
     capacity: '2 GW',
     description:
-      'Projeto internacional de alta escala no Peru, englobando complexo termo solar, sistema biodigestor de suinocultura, galpões de avicultura e moderno abatedouro.',
+      'Desenvolvido pela ABROAD Energy (BraxEnergy), holding com atuação no Brasil, Peru, África do Sul e Panamá: geração solar térmica (CSP) e fotovoltaica híbrida de grande capacidade para o Ministério de Minas e Energia do Peru, com agenda ESG de produção de hortaliças e frutas por aeroponia. A mesma holding também desenvolveu o portfólio de PCHs Rodeio Bonito, São Domingos II e Ernesto J. Dreher no Brasil.',
     image: '/abroad.jpeg',
     isFeatured: true,
+    segment: 'energia',
+    subtype: 'Outros',
   },
   {
     id: 'pch-rodeio-bonito',
@@ -140,6 +91,8 @@ export const FEATURED_PROJECTS: Project[] = [
       'Pequena Central Hidrelétrica de alta complexidade com turbina Francis Horizontal, vazão total de 21,60 m³/s e projeto inovador de vazão sanitária submersível.',
     image: '/pch-rodeio-bonito.jpg',
     isFeatured: true,
+    segment: 'energia',
+    subtype: 'PCH',
   },
 ];
 
@@ -153,6 +106,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2025',
     capacity: '765 MWp',
     image: '/ufv-cristino-castro.jpg',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'reatores',
@@ -160,7 +115,11 @@ export const PROJECTS_LIST: Project[] = [
     location: 'Governador Valadares, Minas Gerais',
     year: '2020',
     capacity: '35 MVAr',
+    description:
+      'Fornecimento de 12 reatores monofásicos de 500/√3 kV pela TUSA para os Lotes 7 e 8 da Quebec Engenharia: 6 unidades de 35 MVAr (SE Governador Valadares 6 e Mutum) e 6 unidades de 23,33 MVAr (SE Presidente Juscelino e Itabira 5), com controle de qualidade completo de isolamento (ensaio "vapour phase").',
     image: '/Reatores.png',
+    segment: 'energia',
+    subtype: 'Transmissão/Subestação',
   },
   {
     id: 'ufv-panorama',
@@ -169,6 +128,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2024',
     capacity: '550 MWp',
     image: '/ufv-panorama.jpg',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-belmonte',
@@ -177,6 +138,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2023',
     capacity: '570 MWp',
     image: '/ufv-belmonte.png',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-sao-goncalo',
@@ -185,6 +148,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2022',
     capacity: '864.5 MWp',
     image: '/ufv-sao-goncalo.jpg',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-jaiba',
@@ -193,6 +158,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2020',
     capacity: '106 MWp',
     image: '/ufv-jaiba.jpg',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-dracena',
@@ -201,6 +168,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2019',
     capacity: '90 MWp',
     image: '/ufv-dracena.png',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-pirapora',
@@ -209,6 +178,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2018',
     capacity: '406 MWp',
     image: '/ufv-pirapora.png',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-iaciara',
@@ -217,6 +188,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2023',
     capacity: '7.20 MWp',
     image: '/ufv-iaciara.png',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'ufv-santo-antonio',
@@ -225,6 +198,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2023',
     capacity: '7.86 MWp',
     image: '/ufv-santo-antonio.png',
+    segment: 'energia',
+    subtype: 'Solar',
   },
   {
     id: 'linha-verde-ii',
@@ -233,6 +208,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2020',
     capacity: '500 kV',
     image: '/linha_verde_ii.jpg',
+    segment: 'energia',
+    subtype: 'Transmissão/Subestação',
   },
   {
     id: 'complexo-termosolar',
@@ -240,7 +217,11 @@ export const PROJECTS_LIST: Project[] = [
     location: 'Barra, Bahia',
     year: '2020',
     capacity: '240 MW',
+    description:
+      'Estudo de viabilidade para usina termosolar (CSP, tecnologia de calhas parabólicas) de 240 MW em Barra, Bahia — parte de um portfólio de 9 projetos termosolares e fotovoltaicos autorizados pela ANEEL no semiárido brasileiro, atualmente com elaboração de EIA/RIMA em andamento.',
     image: '/Termosolar.jpeg',
+    segment: 'energia',
+    subtype: 'Solar/Termosolar',
   },
   {
     id: 'abroad-moquegua',
@@ -249,6 +230,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2014',
     capacity: '2 GW',
     image: '/abroad.jpeg',
+    segment: 'energia',
+    subtype: 'Outros',
   },
   {
     id: 'pch-rodeio-bonito',
@@ -257,6 +240,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2021',
     capacity: '24.000 kW',
     image: '/pch-rodeio-bonito.jpg',
+    segment: 'energia',
+    subtype: 'PCH',
   },
   {
     id: 'pch-sao-domingos-ii',
@@ -265,6 +250,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2022',
     capacity: '24.000 kW',
     image: '/pch-sao-domingos.jpg',
+    segment: 'energia',
+    subtype: 'PCH',
   },
   {
     id: 'pch-3-linha-leste',
@@ -273,6 +260,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2022',
     capacity: '12.350 kW',
     image: '/pch-linha-leste.jpg',
+    segment: 'energia',
+    subtype: 'PCH',
   },
   {
     id: 'pch-ernesto-dreher',
@@ -281,6 +270,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2023',
     capacity: '17.000 kW',
     image: '/pch_ernesto_j_dreher.png',
+    segment: 'energia',
+    subtype: 'PCH',
   },
   {
     id: 'subestacao-itabira',
@@ -289,6 +280,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2020',
     capacity: '500 kV',
     image: '/subestacao-itabira.png',
+    segment: 'energia',
+    subtype: 'Transmissão/Subestação',
   },
   {
     id: 'leilao-aneel-2005',
@@ -297,6 +290,8 @@ export const PROJECTS_LIST: Project[] = [
     year: '2006',
     capacity: '708 km LT & SEs',
     image: '/interligacao-norte-sul.webp',
+    segment: 'energia',
+    subtype: 'Transmissão/Subestação',
   },
 ];
 
@@ -307,6 +302,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Preparação de terreno, terraplenagem e infraestrutura civil para usinas solares.',
     image: '/obras-civis.png',
     iconName: 'Building',
+    segment: 'energia',
   },
   {
     id: 'cravacao-perfis',
@@ -314,6 +310,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Instalação especializada de fundações metálicas para estruturas fotovoltaicas.',
     image: '/cravacao-perfis-metalicos.png',
     iconName: 'Hammer',
+    segment: 'energia',
   },
   {
     id: 'montagem-estruturas',
@@ -321,6 +318,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Montagem precisa de estruturas metálicas e instalação de painéis solares.',
     image: '/montagem-estruturas-modulos.png',
     iconName: 'Sun',
+    segment: 'energia',
   },
   {
     id: 'instalacao-eletrica',
@@ -328,6 +326,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Sistemas elétricos completos, cabeamento e conexão à rede de transmissão.',
     image: '/instalacao-eletrica.png',
     iconName: 'Zap',
+    segment: 'energia',
   },
   {
     id: 'logistica',
@@ -335,6 +334,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Gestão completa de suprimentos e logística para grandes projetos solares.',
     image: '/logistica.png',
     iconName: 'Truck',
+    segment: 'energia',
   },
   {
     id: 'operacao-manutencao',
@@ -342,6 +342,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Serviços especializados de manutenção e monitoramento de performance.',
     image: '/operacao-manutencao.png',
     iconName: 'Settings',
+    segment: 'energia',
   },
   {
     id: 'lancamento-cabos',
@@ -349,6 +350,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Especializados no lançamento de cabos de média e baixa tensão para conexão de usinas fotovoltaicas à rede elétricas.',
     image: '/lancamento-cabos.png',
     iconName: 'ShieldCheck',
+    segment: 'energia',
   },
   {
     id: 'abertura-valas',
@@ -356,6 +358,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Serviços de abertura de valas para instalação de cabos subterrâneos, com equipamentos especializados.',
     image: '/abertura-valas.png',
     iconName: 'Wrench',
+    segment: 'energia',
   },
   {
     id: 'linha-transmissao',
@@ -363,6 +366,7 @@ export const SERVICES_LIST: Service[] = [
     description: 'Serviços completos para linhas de transmissão: fundação das torres, montagem das torres e lançamento de cabo.',
     image: '/servico-linhas-transmissao.jpg',
     iconName: 'Zap',
+    segment: 'energia',
   },
   {
     id: 'subestacao-se',
@@ -370,6 +374,62 @@ export const SERVICES_LIST: Service[] = [
     description: 'Construção civil e eletromecânica: montagem das bases dos pórticos, montagem dos pórticos, casa de comando e paredes corta-fogo.',
     image: '/servico-subestacao.jpg',
     iconName: 'Building',
+    segment: 'energia',
+  },
+  // Serviços reais da HB20 Construções (validados no site oficial hb20construcoes.com.br)
+  {
+    id: 'construcao-civil',
+    title: 'Construção Civil',
+    description: 'Planejamento, gerenciamento e execução de obras civis de grande porte.',
+    image: '',
+    iconName: 'Building',
+    segment: 'edificacoes',
+  },
+  {
+    id: 'obras-infraestrutura',
+    title: 'Obras de Infraestrutura',
+    description: 'Concepção, construção, fiscalização, operação e análise de pavimentação e terraplenagem.',
+    image: '',
+    iconName: 'HardHat',
+    segment: 'estrada-e-rodagem',
+  },
+  {
+    id: 'saneamento-infra',
+    title: 'Saneamento',
+    description: 'Maquinários de alta tonelagem e profissionais especializados em redes de saneamento.',
+    image: '',
+    iconName: 'Droplet',
+    segment: 'infraestrutura',
+  },
+  {
+    id: 'mineracao-infra',
+    title: 'Mineração',
+    description: 'Soluções com custos otimizados e execução acelerada para movimentação de terra e minérios.',
+    image: '',
+    iconName: 'Pickaxe',
+    segment: 'infraestrutura',
+  },
+  // Etapas com foto real (pasta /public), sem descrição própria — não inventar texto que não existe.
+  {
+    id: 'stage-terraplenagem',
+    title: 'Terraplenagem e Abertura de Vias',
+    image: '/etapa-terraplenagem.jpg',
+    iconName: 'HardHat',
+    segment: 'estrada-e-rodagem',
+  },
+  {
+    id: 'stage-compactacao',
+    title: 'Compactação de Solo e Pavimentação Asfáltica',
+    image: '/etapa-compactacao.jpg',
+    iconName: 'HardHat',
+    segment: 'estrada-e-rodagem',
+  },
+  {
+    id: 'stage-nivelamento',
+    title: 'Nivelamento e Drenagem com Maquinário Pesado',
+    image: '/etapa-terraplenagem.jpg',
+    iconName: 'HardHat',
+    segment: 'estrada-e-rodagem',
   },
 ];
 

@@ -3,8 +3,8 @@
 import React from 'react';
 import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { SegmentCardsSection } from '@/components/sections/SegmentCardsSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
-import { ServicesSection } from '@/components/sections/ServicesSection';
 import { NewsSection } from '@/components/sections/NewsSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { ValuesSection } from '@/components/sections/ValuesSection';
@@ -17,8 +17,8 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <SegmentCardsSection />
         <ProjectsSection />
-        <ServicesSection />
         <NewsSection />
         <AboutSection />
         <ContactSection />

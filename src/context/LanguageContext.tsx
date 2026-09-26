@@ -7,11 +7,43 @@ export type Language = 'BR' | 'US';
 export interface Translations {
   nav: {
     home: string;
-    projects: string;
-    services: string;
     news: string;
     about: string;
     contact: string;
+  };
+  home: {
+    segmentsSectionTitle: string;
+    segmentsSectionSubtitle: string;
+    viewSegment: string;
+    comingSoonBadge: string;
+  };
+  segments: {
+    list: {
+      slug: string;
+      label: string;
+      tagline: string;
+    }[];
+    subverticals: {
+      slug: string;
+      label: string;
+      tagline: string;
+    }[];
+    comingSoon: {
+      title: string;
+      body: string;
+    };
+    exploreSubvertical: string;
+    ctaTitle: string;
+    ctaButton: string;
+  };
+  projectDetail: {
+    backToSegment: string;
+    technicalSheet: string;
+    location: string;
+    year: string;
+    capacity: string;
+    segment: string;
+    relatedProjects: string;
   };
   hero: {
     title: string;
@@ -123,7 +155,7 @@ export interface Translations {
     description: string;
     followLinkedin: string;
     quickLinks: string;
-    servicesTitle: string;
+    segmentsTitle: string;
     contactTitle: string;
     address: string;
     rights: string;
@@ -134,16 +166,52 @@ export const translations: Record<Language, Translations> = {
   BR: {
     nav: {
       home: 'Página Inicial',
-      projects: 'Projetos',
-      services: 'Serviços',
       news: 'Notícias',
       about: 'Sobre Nós',
       contact: 'Contato',
     },
+    home: {
+      segmentsSectionTitle: 'Nossos Segmentos de Negócio',
+      segmentsSectionSubtitle: 'Um grupo, cinco frentes de atuação em engenharia e construção em todo o Brasil.',
+      viewSegment: 'Ver mais',
+      comingSoonBadge: 'Em breve',
+    },
+    segments: {
+      list: [
+        { slug: 'energia', label: 'Energia', tagline: 'Usinas solares, PCHs, linhas de transmissão e subestações de grande escala.' },
+        { slug: 'oleo-e-gas', label: 'Óleo e Gás', tagline: 'Engenharia e construção para o setor de óleo e gás.' },
+        { slug: 'infraestrutura', label: 'Infraestrutura', tagline: 'Saneamento, mineração e grandes obras de infraestrutura.' },
+        { slug: 'estrada-e-rodagem', label: 'Estrada e Rodagem', tagline: 'Terraplenagem, pavimentação e obras rodoviárias.' },
+        { slug: 'edificacoes', label: 'Edificações', tagline: 'Construção civil predial e industrial.' },
+      ],
+      subverticals: [
+        { slug: 'solar', label: 'Solar', tagline: 'Usinas fotovoltaicas de grande escala (GC e GD).' },
+        { slug: 'pch', label: 'PCH', tagline: 'Pequenas Centrais Hidrelétricas.' },
+        { slug: 'transmissao-subestacoes', label: 'Transmissão & Subestações', tagline: 'Linhas de transmissão e subestações de alta tensão.' },
+        { slug: 'saneamento', label: 'Saneamento', tagline: 'Maquinários de alta tonelagem e profissionais especializados em redes de saneamento.' },
+        { slug: 'mineracao', label: 'Mineração', tagline: 'Soluções com custos otimizados e execução acelerada para movimentação de terra e minérios.' },
+      ],
+      comingSoon: {
+        title: 'Projetos em atualização',
+        body: 'Novos cases deste segmento em breve. Fale com a gente para saber mais sobre nossa atuação nessa frente.',
+      },
+      exploreSubvertical: 'Explorar',
+      ctaTitle: 'Quer saber mais sobre a nossa atuação nesse segmento?',
+      ctaButton: 'Fale Conosco',
+    },
+    projectDetail: {
+      backToSegment: 'Voltar para',
+      technicalSheet: 'Ficha Técnica',
+      location: 'Local',
+      year: 'Ano',
+      capacity: 'Capacidade',
+      segment: 'Segmento',
+      relatedProjects: 'Projetos Relacionados',
+    },
     hero: {
       title: 'Nova Aliança Empreendimentos',
       subtitle:
-        'Nascemos da união estratégica entre a Carvalho Energia Renovável e a HB20 Construções, reunindo mais de 11 anos de excelência na execução de parques de energia solar, subestações, linhas de transmissão e PCHs, além de construção civil, infraestrutura, saneamento e mineração.',
+        'Somos um grupo de engenharia e construção atuando em Energia, Óleo e Gás, Infraestrutura, Estrada e Rodagem e Edificações, com mais de 11 anos de excelência na execução de parques de energia solar, subestações, linhas de transmissão e PCHs, além de construção civil, infraestrutura, saneamento e mineração.',
       metrics: {
         installed: 'MWp Instalados em Solar',
         projects: 'Projetos de Infraestrutura & Energia',
@@ -255,14 +323,14 @@ export const translations: Record<Language, Translations> = {
           title: 'Complexo Moquegua',
           location: 'Moquegua, Peru',
           capacity: '2 GW (Termo Solar, Biodigestor, Avicultura & Abatedouro)',
-          description: 'Projeto internacional de alta escala no Peru, englobando complexo termo solar, sistema biodigestor de suinocultura, galpões de avicultura e moderno abatedouro.',
+          description: 'Desenvolvido pela ABROAD Energy (BraxEnergy), holding com atuação no Brasil, Peru, África do Sul e Panamá: geração solar térmica (CSP) e fotovoltaica híbrida de grande capacidade para o Ministério de Minas e Energia do Peru, com agenda ESG de produção de hortaliças e frutas por aeroponia. A mesma holding também desenvolveu o portfólio de PCHs Rodeio Bonito, São Domingos II e Ernesto J. Dreher no Brasil.',
         },
         {
           id: 'linha-verde-ii',
           title: 'Linha Verde II (LT 500 kV)',
           location: 'Santana do Riacho, Minas Gerais',
           capacity: '500 kV',
-          description: 'Execução de linha de transmissão de alta tensão de 500 kV, envolvendo a montagem de torres metálicas e lançamento de cabos condutores de alta performance.',
+          description: 'Linha de transmissão de 500 kV entre as subestações Presidente Juscelino e Itabira 5, com 160,33 km de traçado e 314 torres (148 estaiadas e 166 autoportantes), executada pela Quebec Engenharia para a SPE Transmissora de Energia Linha Verde II / Terna Plus. Contrato de R$ 202,4 milhões e prazo de 16 meses, com fornecedores como Gerdau, Alubar, ZTT do Brasil e Siemens.',
         },
         {
           id: 'subestacao-itabira',
@@ -276,7 +344,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Reatores Lote 7 & 8',
           location: 'Governador Valadares, Minas Gerais',
           capacity: '35 MVAr',
-          description: 'Instalação e comissionamento de reatores para compensação de reativos na rede básica de transmissão de energia.',
+          description: 'Fornecimento de 12 reatores monofásicos de 500/√3 kV pela TUSA para os Lotes 7 e 8 da Quebec Engenharia: 6 unidades de 35 MVAr (SE Governador Valadares 6 e Mutum) e 6 unidades de 23,33 MVAr (SE Presidente Juscelino e Itabira 5), com controle de qualidade completo de isolamento (ensaio "vapour phase").',
         },
         {
           id: 'leilao-aneel-2005',
@@ -289,7 +357,7 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       title: 'Nossos Serviços',
-      subtitle: 'Soluções de alta performance e engenharia especializada para a construção de usinas solares de grande escala em todo o Brasil.',
+      subtitle: 'Soluções de alta performance e engenharia especializada em todo o Brasil.',
       viewMore: 'Ver mais serviços',
       viewLess: 'Ver menos',
       searchPlaceholder: 'Pesquisar serviços...',
@@ -389,7 +457,7 @@ export const translations: Record<Language, Translations> = {
       title: 'Sobre a Nova Aliança Empreendimentos',
       subtitle: 'Nossa História — A União que nos Fortalece',
       paragraph1:
-        'A Nova Aliança Empreendimentos nasceu da fusão estratégica entre duas grandes referências do mercado: a Carvalho Energia Renovável, líder em construção de usinas fotovoltaicas de grande porte (GC e GD), e a HB20 Construções, com mais de 10 anos de tradição em engenharia civil, obras de infraestrutura, saneamento básico e mineração.',
+        'A Nova Aliança Empreendimentos nasceu da união estratégica entre quatro grandes referências do mercado: a Carvalho Energia Renovável, líder em construção de usinas fotovoltaicas de grande porte (GC e GD); a HB20 Construções, com mais de 10 anos de tradição em engenharia civil, obras de infraestrutura, saneamento básico e mineração; a TransÁfrica Power Alliance, especializada em transmissão e subestações; e a TransAmérica Power Alliance, focada em geração térmica e industrial.',
       paragraph2:
         'Essa sinergia une o melhor dos dois mundos — a inovação e tecnologia do setor de energias renováveis com a robustez e experiência comprovada em grandes obras civis. Com mais de 35 projetos realizados, 30+ clientes atendidos e um parque de máquinas de alta tonelagem, somos capazes de entregar soluções completas ponta a ponta.',
       paragraph3:
@@ -433,10 +501,10 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       description:
-        'A união entre a Carvalho Energia Renovável e a HB20 Construções. Atuamos em energia solar, construção civil, infraestrutura, saneamento e mineração em todo o Brasil.',
+        'A união entre Carvalho Energia Renovável, HB20 Construções, TransÁfrica Power Alliance e TransAmérica Power Alliance. Atuamos em Energia, Óleo e Gás, Infraestrutura, Estrada e Rodagem e Edificações em todo o Brasil.',
       followLinkedin: 'Siga no LinkedIn',
       quickLinks: 'Links Rápidos',
-      servicesTitle: 'Serviços',
+      segmentsTitle: 'Segmentos',
       contactTitle: 'Contato',
       address: 'Trindade - Goiás, Brasil',
       rights: 'Todos os direitos reservados.',
@@ -445,16 +513,52 @@ export const translations: Record<Language, Translations> = {
   US: {
     nav: {
       home: 'Home',
-      projects: 'Projects',
-      services: 'Services',
       news: 'News',
       about: 'About Us',
       contact: 'Contact',
     },
+    home: {
+      segmentsSectionTitle: 'Our Business Segments',
+      segmentsSectionSubtitle: 'One group, five engineering and construction fronts across Brazil.',
+      viewSegment: 'View more',
+      comingSoonBadge: 'Coming soon',
+    },
+    segments: {
+      list: [
+        { slug: 'energia', label: 'Energy', tagline: 'Utility-scale solar plants, small hydro plants, transmission lines and substations.' },
+        { slug: 'oleo-e-gas', label: 'Oil & Gas', tagline: 'Engineering and construction for the oil and gas sector.' },
+        { slug: 'infraestrutura', label: 'Infrastructure', tagline: 'Sanitation, mining and large infrastructure works.' },
+        { slug: 'estrada-e-rodagem', label: 'Roads', tagline: 'Earthworks, paving and road construction.' },
+        { slug: 'edificacoes', label: 'Buildings', tagline: 'Residential, commercial and industrial construction.' },
+      ],
+      subverticals: [
+        { slug: 'solar', label: 'Solar', tagline: 'Utility-scale photovoltaic plants (large and distributed generation).' },
+        { slug: 'pch', label: 'Small Hydro (PCH)', tagline: 'Small hydroelectric power plants.' },
+        { slug: 'transmissao-subestacoes', label: 'Transmission & Substations', tagline: 'High-voltage transmission lines and substations.' },
+        { slug: 'saneamento', label: 'Sanitation', tagline: 'High-tonnage machinery and specialized professionals for sanitation networks.' },
+        { slug: 'mineracao', label: 'Mining', tagline: 'Cost-optimized, fast-execution solutions for earthmoving and ore handling.' },
+      ],
+      comingSoon: {
+        title: 'Projects being updated',
+        body: 'New cases for this segment coming soon. Get in touch to learn more about our work in this area.',
+      },
+      exploreSubvertical: 'Explore',
+      ctaTitle: 'Want to know more about our work in this segment?',
+      ctaButton: 'Get in Touch',
+    },
+    projectDetail: {
+      backToSegment: 'Back to',
+      technicalSheet: 'Technical Sheet',
+      location: 'Location',
+      year: 'Year',
+      capacity: 'Capacity',
+      segment: 'Segment',
+      relatedProjects: 'Related Projects',
+    },
     hero: {
       title: 'Nova Aliança Empreendimentos',
       subtitle:
-        'We were born from the strategic partnership between Carvalho Energia Renovável and HB20 Construções, combining over 11 years of excellence in the execution of solar farms, substations, transmission lines, and small hydroelectric plants (PCHs), as well as civil construction, infrastructure, sanitation, and mining projects.',
+        'We are an engineering and construction group operating in Energy, Oil & Gas, Infrastructure, Roads, and Buildings, with over 11 years of excellence in the execution of solar farms, substations, transmission lines, and small hydroelectric plants (PCHs), as well as civil construction, infrastructure, sanitation, and mining projects.',
       metrics: {
         installed: 'MWp Installed in Solar',
         projects: 'Infrastructure & Energy Projects',
@@ -566,14 +670,14 @@ export const translations: Record<Language, Translations> = {
           title: 'Moquegua Complex',
           location: 'Moquegua - Peru',
           capacity: '2 GW (Solar Thermal, Biodigester, Poultry & Abattoir)',
-          description: 'High-scale international project in Peru, including a solar thermal complex, swine biodigester system, poultry farms, and a modern processing facility.',
+          description: 'Developed by ABROAD Energy (BraxEnergy), a holding company operating in Brazil, Peru, South Africa, and Panama: hybrid solar thermal (CSP) and photovoltaic generation of large capacity for Peru\'s Ministry of Energy and Mines, with an ESG agenda for vegetable and fruit production via aeroponics. The same holding also developed the Rodeio Bonito, São Domingos II, and Ernesto J. Dreher small hydro plant (PCH) portfolio in Brazil.',
         },
         {
           id: 'linha-verde-ii',
           title: 'Linha Verde II (500 kV TL)',
           location: 'Santana do Riacho, Minas Gerais - Brazil',
           capacity: '500 kV',
-          description: 'Execution of a 500 kV high-voltage transmission line, involving metallic tower assembly and high-performance conductor cable stringing.',
+          description: 'A 500 kV transmission line between the Presidente Juscelino and Itabira 5 substations, spanning 160.33 km with 314 towers (148 guyed and 166 self-supporting), built by Quebec Engenharia for SPE Transmissora de Energia Linha Verde II / Terna Plus. R$ 202.4 million contract over 16 months, with suppliers including Gerdau, Alubar, ZTT do Brasil, and Siemens.',
         },
         {
           id: 'subestacao-itabira',
@@ -587,7 +691,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Reactors Lot 7 & 8',
           location: 'Governador Valadares, Minas Gerais - Brazil',
           capacity: '35 MVAr',
-          description: 'Installation and commissioning of shunt reactors for reactive power compensation in the main transmission grid.',
+          description: 'Supply of 12 single-phase 500/√3 kV reactors by TUSA for Quebec Engenharia\'s Lots 7 and 8: 6 units of 35 MVAr (Governador Valadares 6 and Mutum substations) and 6 units of 23.33 MVAr (Presidente Juscelino and Itabira 5 substations), with full insulation quality control ("vapour phase" testing).',
         },
         {
           id: 'leilao-aneel-2005',
@@ -600,7 +704,7 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       title: 'Our Services',
-      subtitle: 'High performance solutions and specialized engineering for the construction of utility-scale solar plants across Brazil.',
+      subtitle: 'High performance solutions and specialized engineering across Brazil.',
       viewMore: 'View more services',
       viewLess: 'View less',
       searchPlaceholder: 'Search services...',
@@ -700,7 +804,7 @@ export const translations: Record<Language, Translations> = {
       title: 'About Nova Aliança Empreendimentos',
       subtitle: 'Our Story — The Union that Empowers Us',
       paragraph1:
-        'Nova Aliança Empreendimentos was born from the strategic merger of two market-leading companies: Carvalho Renewable Energy, a leader in utility-scale solar plant construction (GC & GD), and HB20 Construction, with over 10 years of tradition in civil engineering, infrastructure, sanitation, and mining.',
+        'Nova Aliança Empreendimentos was born from the strategic union of four market-leading companies: Carvalho Renewable Energy, a leader in utility-scale solar plant construction (GC & GD); HB20 Construction, with over 10 years of tradition in civil engineering, infrastructure, sanitation, and mining; TransÁfrica Power Alliance, specialized in transmission and substations; and TransAmérica Power Alliance, focused on thermal and industrial power generation.',
       paragraph2:
         'This synergy unites the best of both worlds — the innovation and technology of the renewable energy sector with the robustness and experience proven in large-scale civil works. With over 35 completed projects, 30+ clients served, and a fleet of high-tonnage heavy machinery, we deliver complete end-to-end solutions.',
       paragraph3:
@@ -744,10 +848,10 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       description:
-        'The union of Carvalho Renewable Energy and HB20 Construction. We operate in solar energy, civil construction, infrastructure, sanitation, and mining across Brazil.',
+        'The union of Carvalho Renewable Energy, HB20 Construction, TransÁfrica Power Alliance, and TransAmérica Power Alliance. We operate in Energy, Oil & Gas, Infrastructure, Roads, and Buildings across Brazil.',
       followLinkedin: 'Follow on LinkedIn',
       quickLinks: 'Quick Links',
-      servicesTitle: 'Services',
+      segmentsTitle: 'Segments',
       contactTitle: 'Contact',
       address: 'Trindade - Goiás, Brazil',
       rights: 'All rights reserved.',

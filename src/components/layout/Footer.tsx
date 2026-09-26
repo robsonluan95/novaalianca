@@ -1,25 +1,20 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { MapPin, Phone, Mail, Share2, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { SEGMENTS, buildNavLinks } from '@/data/segments';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
-  const navLinks = [
-    { label: t.nav.home, href: '#hero' },
-    { label: t.nav.projects, href: '#projetos' },
-    { label: t.nav.services, href: '#servicos' },
-    { label: t.nav.news, href: '#noticias' },
-    { label: t.nav.about, href: '#sobre' },
-    { label: t.nav.contact, href: '#contato' },
-  ];
+  const navLinks = buildNavLinks(t);
 
-  const services = t.services.list.slice(0, 4).map((item) => ({
-    title: item.title,
-    href: '#servicos',
+  const segmentLinks = SEGMENTS.map((segment) => ({
+    label: t.segments.list.find((s) => s.slug === segment.slug)?.label ?? segment.label,
+    href: segment.href,
   }));
 
   return (
@@ -57,31 +52,31 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-300 hover:text-brand-light transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 3: Segments */}
           <div>
             <h4 className="text-base font-bold text-white mb-4 tracking-wide uppercase text-xs text-brand-light">
-              {t.footer.servicesTitle}
+              {t.footer.segmentsTitle}
             </h4>
             <ul className="space-y-2.5">
-              {services.map((service, idx) => (
-                <li key={idx}>
-                  <a
-                    href={service.href}
+              {segmentLinks.map((segment) => (
+                <li key={segment.href}>
+                  <Link
+                    href={segment.href}
                     className="text-sm text-gray-300 hover:text-brand-light transition-colors"
                   >
-                    {service.title}
-                  </a>
+                    {segment.label}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -3,9 +3,9 @@ import './globals.css';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata: Metadata = {
-  title: 'Nova Aliança Empreendimentos | Usinas Fotovoltaicas de Grande Escala',
+  title: 'Nova Aliança Empreendimentos | Energia, Óleo e Gás, Infraestrutura, Estrada e Edificações',
   description:
-    'Especialistas na construção de usinas fotovoltaicas de grande escala (GC e GD), combinando inovação, sustentabilidade e excelência técnica.',
+    'Grupo de engenharia e construção atuando em Energia, Óleo e Gás, Infraestrutura, Estrada e Rodagem e Edificações em todo o Brasil.',
   icons: {
     icon: '/icon.jpeg',
     shortcut: '/icon.jpeg',
@@ -14,10 +14,11 @@ export const metadata: Metadata = {
   keywords: [
     'Energia Solar',
     'Usinas Fotovoltaicas',
-    'Geração Centralizada',
-    'Geração Distribuída',
-    'Obras Civis Solares',
-    'Cravação de Perfis Metálicos',
+    'Óleo e Gás',
+    'Infraestrutura',
+    'Estrada e Rodagem',
+    'Edificações',
+    'Engenharia e Construção',
     'Nova Aliança Empreendimentos',
   ],
 };
